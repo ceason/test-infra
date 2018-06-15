@@ -29,9 +29,14 @@ import (
 	"time"
 
 	"github.com/sirupsen/logrus"
+	"flag"
 )
 
-const github = "github.com"
+var github = "github.com"
+
+func init() {
+	flag.StringVar(&github, "github-domain", github, "GitHub's domain.")
+}
 
 // Client can clone repos. It keeps a local cache, so successive clones of the
 // same repo should be quick. Create with NewClient. Be sure to clean it up.
