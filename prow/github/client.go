@@ -186,7 +186,7 @@ func NewClient(token string, bases ...string) *Client {
 	return &Client{
 		logger: logrus.WithField("client", "github"),
 		time:   &standardTime{},
-		gqlc:   githubql.NewClient(oauth2.NewClient(context.Background(), oauth2.StaticTokenSource(&oauth2.Token{AccessToken: token}))),
+		gqlc:   githubql.NewEnterpriseClient(bases[0] + "/graphql", oauth2.NewClient(context.Background(), oauth2.StaticTokenSource(&oauth2.Token{AccessToken: token}))),
 		client: &http.Client{},
 		token:  token,
 		bases:  bases,
@@ -206,7 +206,7 @@ func NewDryRunClient(token string, bases ...string) *Client {
 	return &Client{
 		logger: logrus.WithField("client", "github"),
 		time:   &standardTime{},
-		gqlc:   githubql.NewClient(oauth2.NewClient(context.Background(), oauth2.StaticTokenSource(&oauth2.Token{AccessToken: token}))),
+		gqlc:   githubql.NewEnterpriseClient(bases[0] + "/graphql", oauth2.NewClient(context.Background(), oauth2.StaticTokenSource(&oauth2.Token{AccessToken: token}))),
 		client: &http.Client{},
 		token:  token,
 		bases:  bases,
