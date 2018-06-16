@@ -604,7 +604,7 @@
 [[projects]]
   name = "github.com/shurcooL/githubql"
   packages = ["."]
-  revision = "71882d9f5f43fe50be204fe37db8994bf70072bb"
+  revision = "62fe469bc6b12ef11f61fc67722f7f63bce3a2ff"
 
 [[projects]]
   name = "github.com/shurcooL/go"
